@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+
+# The game's entry page is homepage.html (there is no index.html)
+[[redirects]]
+  from = "/"
+  to = "/homepage.html"
+  status = 200
+
+# Cross-origin isolation required by the engine (SharedArrayBuffer / WebGPU workers)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Resource-Policy = "same-origin"
